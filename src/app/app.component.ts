@@ -12,5 +12,17 @@ import { Meta, Title } from '@angular/platform-browser';
   styles: []
 })
 export class AppComponent {
-
+  constructor(private metaService: Meta, private titleService: Title) {
+    this.titleService.setTitle('Angular Universal PWA');
+    this.metaService.addTags([
+      { name: 'description', content: 'An Angular Universal PWA built with the Angular-Cli and deployed to Firebase' },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:site_name', content: 'Angular Universal PWA' },
+      { property: 'og:type', content: 'Website' },
+      { property: 'og:title', content: 'Angular Universal PWA' },
+      { property: 'og:description', content: 'An Angular Universal PWA built with the Angular-Cli and deployed to Firebase' },
+      { property: 'twitter:title', content: 'Angular Universal PWA' },
+      { property: 'twitter:description', content: 'An Angular Universal PWA built with the Angular-Cli and deployed to Firebase' }
+    ]);
+  }
 }

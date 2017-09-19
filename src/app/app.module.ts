@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -20,7 +20,10 @@ import { SharedModule } from 'app/shared/shared.module';
     ]),
     SharedModule
   ],
-  providers: [],
+  providers: [
+    Meta,
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
