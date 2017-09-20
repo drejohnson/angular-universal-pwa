@@ -2,10 +2,16 @@ import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { isBrowser } from './util/helpers';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+import { MdToolbarModule } from '@angular/material';
 import { SharedModule } from 'app/shared/shared.module';
+
+// if (isBrowser()) {
+//   require('hammerjs');
+// }
 
 @NgModule({
   declarations: [
@@ -18,6 +24,7 @@ import { SharedModule } from 'app/shared/shared.module';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' }
     ]),
+    MdToolbarModule,
     SharedModule
   ],
   providers: [
