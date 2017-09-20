@@ -1,11 +1,22 @@
 {
   "hosting": {
     "public": "dist",
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "ssr"
-      }
-    ]
+    "headers": [{
+      "source": "**/*.@(eot|otf|ttf|ttc|woff|js|css)",
+      "headers": [{
+        "key": "Access-Control-Allow-Origin",
+        "value": "*"
+      }]
+    }, {
+      "source": "**/*.@(jpg|jpeg|svg|png|ico|js|css)",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=30672000"
+      }]
+    }],
+    "rewrites": [{
+      "source": "**",
+      "function": "ssr"
+    }]
   }
 }
