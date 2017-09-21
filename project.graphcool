@@ -1,0 +1,67 @@
+# project: PHRESHR
+# version: 80
+
+type Episode implements Node {
+  createdAt: DateTime
+  description: String!
+  episode: String
+  featureImageUrl: String
+  featured: Boolean! @defaultValue(value: false)
+  id: ID! @isUnique
+  imagePublicId: String
+  mediaId: String @isUnique
+  season: Int!
+  show: Show @relation(name: "ShowRelation")
+  thumbImageUrl: String!
+  title: String! @isUnique
+  topics: [Topic!]! @relation(name: "Topic")
+  uid: String @isUnique
+  updatedAt: DateTime
+  videoUrl: String!
+}
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime
+  url: String! @isUnique
+}
+
+type Show implements Node {
+  createdAt: DateTime
+  description: String!
+  episodes: [Episode!]! @relation(name: "ShowRelation")
+  featureImageUrl: String
+  id: ID! @isUnique
+  imagePublicId: String
+  posterImageUrl: String
+  title: String! @isUnique
+  uid: String @isUnique
+  updatedAt: DateTime
+}
+
+type Topic implements Node {
+  createdAt: DateTime
+  episodes: [Episode!]! @relation(name: "Topic")
+  id: ID! @isUnique
+  name: String!
+  updatedAt: DateTime
+}
+
+type Search implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
+
+type User implements Node {
+  auth0UserId: String @isUnique
+  createdAt: DateTime
+  id: ID! @isUnique
+  name: String!
+  updatedAt: DateTime
+}

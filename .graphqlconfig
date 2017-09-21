@@ -1,0 +1,8 @@
+{
+  "schemaPath": "schema.json",
+  "extensions": {
+    "endpoints": {
+      "dev": "https://api.graph.cool/simple/v1/PHRESHR"
+    }
+  }
+}
